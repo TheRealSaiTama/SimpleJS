@@ -123,7 +123,7 @@ Then again, that explanation doesn't do justice to an app that will literally ch
 
 ## 💫 GLIMPSE THE MAJESTY 💫
 
-![Super Cute Todo Screenshot](https://placekitten.com/600/350)
+![Super Cute Todo Screenshot](screenshot.png)
 
 *Actual screenshot (downscaled by 99% to protect your screen from cuteness overload)*
 
