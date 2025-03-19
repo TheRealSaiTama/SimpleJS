@@ -17,9 +17,9 @@
 
 ## 📚 Introduction
 
-Welcome to **SimpleJS** - a carefully curated collection of JavaScript projects designed to take you from a complete beginner to a JavaScript professional! This repository serves as a learning path with hands-on projects.
+Welcome to **SimpleJS** - a cosmic collection of JavaScript projects designed to take you from a complete beginner to a JavaScript professional! This repository serves as an interstellar learning path with hands-on projects.
 
-> 💡 **Why SimpleJS?** Because learning to code should be fun, engaging, and practical!
+> 💡 **Why SimpleJS?** Because learning to code should be fun, engaging, and out of this world!
 
 ---
 
@@ -50,8 +50,19 @@ Welcome to **SimpleJS** - a carefully curated collection of JavaScript projects 
         <strong>BMI Calculator</strong>
       </a>
     </td>
-    <td>🔥 Beginner</td>
+    <td>🌌 Beginner</td>
     <td>React, Health Tracking</td>
+    <td>✅ Available</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="./calculator">
+        <img src="https://img.icons8.com/fluency/48/000000/calculator.png" width="24"/> 
+        <strong>Cosmic Calculator</strong>
+      </a>
+    </td>
+    <td>🌠 Beginner</td>
+    <td>Basic Arithmetic, Responsive Design</td>
     <td>✅ Available</td>
   </tr>
   <!-- Future projects will be added here -->
@@ -89,6 +100,33 @@ function calculateBMI(weight, height) {
   else category = 'Obese';
   
   return { bmi, category };
+}
+```
+
+### 🌠 [Cosmic Calculator](./calculator)
+
+The Cosmic Calculator is a beginner-friendly project that demonstrates basic arithmetic operations through a responsive design. Explore the universe of numbers with this interactive calculator.
+
+```javascript
+// Sample code from Cosmic Calculator
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  if (b === 0) {
+    alert('Cannot divide by zero!');
+    return null;
+  }
+  return a / b;
 }
 ```
 
@@ -134,7 +172,6 @@ We welcome contributions from developers of all skill levels! Here's how you can
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ```
-
 MIT License
 
 Copyright (c) 2023 Keshav Kumar Jha
