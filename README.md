@@ -17,7 +17,7 @@
 
 ## 📚 Introduction
 
-Welcome to **SimpleJS** - a carefully curated collection of JavaScript projects designed to take you from a complete beginner to a JavaScript professional! This repository serves as a learning path with projects that gradually increase in complexity, introducing new concepts, patterns, and best practices along the way.
+Welcome to **SimpleJS** - a carefully curated collection of JavaScript projects designed to take you from a complete beginner to a JavaScript professional! This repository serves as a learning path with hands-on projects.
 
 > 💡 **Why SimpleJS?** Because learning to code should be fun, engaging, and practical!
 
@@ -43,6 +43,17 @@ Welcome to **SimpleJS** - a carefully curated collection of JavaScript projects 
     <td>DOM Manipulation, Event Handling, Animations</td>
     <td>✅ Available</td>
   </tr>
+  <tr>
+    <td>
+      <a href="./bmicalculator">
+        <img src="https://img.icons8.com/fluency/48/000000/bmi.png" width="24"/> 
+        <strong>BMI Calculator</strong>
+      </a>
+    </td>
+    <td>🔥 Beginner</td>
+    <td>React, Health Tracking</td>
+    <td>✅ Available</td>
+  </tr>
   <!-- Future projects will be added here -->
 </table>
 
@@ -60,30 +71,30 @@ function launchRocket() {
     alert('Rocket has reached orbit! 🌌');
   }, 3000);
 }
-63|```
+```
 
-64|### 🌌 [BMI Calculator](./bmicalculator)
-65|
-66|The Cosmic BMI Calculator is an interactive React application that provides a stellar experience for calculating and visualizing Body Mass Index. It combines practical health tracking with a cosmic theme!
-67|
-68|```javascript
-69|// Sample code from BMI Calculator
-70|function calculateBMI(weight, height) {
-71|  const bmi = weight / (height * height);
-72|  
-73|  let category;
-74|  if (bmi < 18.5) category = 'Underweight';
-75|  else if (bmi < 25) category = 'Normal';
-76|  else if (bmi < 30) category = 'Overweight';
-77|  else category = 'Obese';
-78|  
-79|  return { bmi, category };
-80|}
-81|```
-82|
-83|---
-84|
-85|## 🗺️ Roadmap: Upcoming Projects
+### 🌌 [BMI Calculator](./bmicalculator)
+
+The Cosmic BMI Calculator is an interactive React application that provides a stellar experience for calculating and visualizing Body Mass Index. It combines practical health tracking with a cosmic theme.
+
+```javascript
+// Sample code from BMI Calculator
+function calculateBMI(weight, height) {
+  const bmi = weight / (height * height);
+  
+  let category;
+  if (bmi < 18.5) category = 'Underweight';
+  else if (bmi < 25) category = 'Normal';
+  else if (bmi < 30) category = 'Overweight';
+  else category = 'Obese';
+  
+  return { bmi, category };
+}
+```
+
+---
+
+## 🗺️ Roadmap: Upcoming Projects
 
 We're constantly working on adding new projects to help you on your JavaScript journey:
 
@@ -123,6 +134,7 @@ We welcome contributions from developers of all skill levels! Here's how you can
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ```
+
 MIT License
 
 Copyright (c) 2023 Keshav Kumar Jha
@@ -152,4 +164,3 @@ of this software...
 ⭐ Don't forget to star this repository if you found it helpful! ⭐
 
 </div>
-
