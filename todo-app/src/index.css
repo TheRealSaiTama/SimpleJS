@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Nunito:wght@400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #FFC2D1 0%, #B28DFF 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+:root {
+  --primary-color: #FF85A2;
+  --secondary-color: #FFC2D1;
+  --accent-color: #7BDFF2;
+  --dark-accent: #B28DFF;
+  --light-bg: #FFFEF7;
+  --completed-color: #A5F2E9;
+  --delete-color: #FF85A2;
+  --delete-hover: #FF5C7F;
+  --add-color: #B28DFF;
+  --add-hover: #9F6FFF;
+  --filter-active: #7BDFF2;
+  --text-color: #5D576B;
+  --shadow-color: rgba(255, 133, 162, 0.3);
+}

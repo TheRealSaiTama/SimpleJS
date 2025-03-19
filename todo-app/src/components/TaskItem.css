@@ -1,0 +1,147 @@
+.task-item {
+  background-color: white;
+  color: var(--text-color);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 5px solid var(--accent-color);
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.task-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.task-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: var(--secondary-color);
+  border-radius: 0 0 0 100%;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.task-item.completed {
+  background-color: var(--completed-color);
+  border-left: 5px solid var(--dark-accent);
+  opacity: 0.8;
+}
+
+.task-item.completed::after {
+  content: "✓";
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 18px;
+  color: var(--dark-accent);
+  font-weight: bold;
+}
+
+.task-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--accent-color);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.task-checkbox:checked {
+  background-color: var(--dark-accent);
+  border-color: var(--dark-accent);
+}
+
+.task-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+}
+
+.task-checkbox:hover {
+  transform: scale(1.1);
+}
+
+.task-text {
+  flex-grow: 1;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.task-delete-button {
+  background-color: var(--delete-color);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 3px 10px rgba(255, 133, 162, 0.2);
+}
+
+.task-delete-button:hover {
+  background-color: var(--delete-hover);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 133, 162, 0.3);
+}
+
+.task-delete-button:active {
+  transform: scale(0.95);
+}
+
+.task-item.deleting {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(30px) rotate(5deg);
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
