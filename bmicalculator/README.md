@@ -77,11 +77,6 @@ This project is licensed under the MIT License - see the stars for details.
 - You, for choosing to measure your existence with our cosmic tool
 
 ---
-
-<p align="center">
-  <img src="https://via.placeholder.com/150/0a192f/ffffff?text=BMI" alt="BMI Logo" width="80" height="80">
-</p>
-
 <p align="center">
   Where health meets the infinite ∞
 </p>
