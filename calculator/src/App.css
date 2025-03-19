@@ -1,0 +1,857 @@
+/* Global CSS Reset & Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, border 0.3s,
+    transform 0.2s;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Container styles */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  transition: background-color 0.5s ease;
+}
+
+/* Calculator frame styles */
+.calculator {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.calculator.scientific {
+  max-width: 500px;
+}
+
+/* Theme transition animation */
+.theme-transition {
+  animation: scale-bounce 0.5s ease forwards;
+}
+
+@keyframes scale-bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Display styles */
+.display {
+  padding: 20px;
+  text-align: right;
+  position: relative;
+  overflow: hidden;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.current-input {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 5px;
+  word-break: break-all;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.current-input::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.prev-result {
+  font-size: 1rem;
+  opacity: 0.7;
+  min-height: 24px;
+}
+
+.memory-indicator {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  color: inherit;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Button grid */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+}
+
+.scientific-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+}
+
+.memory-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+}
+
+/* Button styles */
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+button:active::before {
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+}
+
+.button-press {
+  animation: press 0.2s ease;
+}
+
+@keyframes press {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+/* Controls section */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.scientific .controls {
+  max-width: 500px;
+}
+
+.mode-toggle,
+.history-button {
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+/* Menu button */
+.menu-button {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.menu-button span {
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+}
+
+/* Menu popup */
+.menu-popup {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 10;
+  border-radius: 12px;
+  padding: 15px;
+  min-width: 220px;
+  animation: slide-down 0.3s ease;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-header {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.option-header {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.theme-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.theme-btn {
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.close-menu {
+  width: 100%;
+  padding: 8px;
+  margin-top: 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* History panel */
+.history-panel {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  animation: fade-in 0.3s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.history-header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-header h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.history-header button {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+.history-content {
+  overflow-y: auto;
+  max-height: 250px;
+  padding: 0 15px 15px;
+}
+
+.history-item {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.history-item:hover {
+  transform: translateX(5px);
+}
+
+.history-expression {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.history-result {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.no-history {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.7;
+}
+
+/* Media Queries */
+@media (max-width: 500px) {
+  .calculator {
+    max-width: 100%;
+  }
+
+  .controls {
+    max-width: 100%;
+  }
+
+  button {
+    padding: 15px 5px;
+    font-size: 1.1rem;
+  }
+
+  .current-input {
+    font-size: 2rem;
+  }
+
+  .prev-result {
+    font-size: 0.9rem;
+  }
+
+  .history-panel {
+    max-width: 100%;
+  }
+}
+
+/* Theme: Cosmic */
+.cosmic {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #fff;
+}
+
+.cosmic .calculator {
+  background: rgba(16, 13, 58, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(83, 72, 226, 0.3);
+}
+
+.cosmic .display {
+  background: rgba(10, 7, 33, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cosmic button {
+  background: rgba(43, 36, 126, 0.5);
+  color: #fff;
+}
+
+.cosmic button:hover {
+  background: rgba(60, 51, 153, 0.7);
+}
+
+.cosmic .number {
+  background: rgba(33, 28, 82, 0.7);
+}
+
+.cosmic .number:hover {
+  background: rgba(45, 38, 113, 0.9);
+}
+
+.cosmic .operation,
+.cosmic .scientific,
+.cosmic .memory {
+  background: rgba(74, 47, 158, 0.7);
+}
+
+.cosmic .operation:hover,
+.cosmic .scientific:hover,
+.cosmic .memory:hover {
+  background: rgba(93, 58, 201, 0.9);
+}
+
+.cosmic .equals {
+  background: linear-gradient(to right, #5c33ad, #7247c4);
+}
+
+.cosmic .equals:hover {
+  background: linear-gradient(to right, #6b3bc9, #845fd8);
+}
+
+.cosmic .clear {
+  background: rgba(136, 56, 56, 0.7);
+}
+
+.cosmic .clear:hover {
+  background: rgba(163, 67, 67, 0.9);
+}
+
+.cosmic .backspace {
+  background: rgba(136, 84, 56, 0.7);
+}
+
+.cosmic .backspace:hover {
+  background: rgba(163, 101, 67, 0.9);
+}
+
+.cosmic .menu-button span {
+  background-color: #fff;
+}
+
+.cosmic .mode-toggle,
+.cosmic .history-button {
+  background: rgba(74, 47, 158, 0.7);
+  color: white;
+}
+
+.cosmic .menu-popup {
+  background: rgba(27, 22, 80, 0.95);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.cosmic .theme-btn {
+  background: rgba(40, 33, 100, 0.7);
+  color: white;
+}
+
+.cosmic .theme-btn.active {
+  border: 2px solid #a36bf9;
+}
+
+.cosmic .close-menu {
+  background: rgba(74, 47, 158, 0.7);
+  color: white;
+}
+
+.cosmic .history-panel {
+  background: rgba(27, 22, 80, 0.95);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cosmic .history-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cosmic .history-header button {
+  background: rgba(136, 56, 56, 0.7);
+  color: white;
+}
+
+.cosmic .history-item {
+  background: rgba(40, 33, 100, 0.7);
+}
+
+/* Theme: Neon */
+.neon {
+  background: #111;
+  color: #fff;
+}
+
+.neon .calculator {
+  background: rgba(17, 17, 17, 0.95);
+  box-shadow: 0 0 20px #0ff, 0 0 30px #f0f, 0 0 40px rgba(255, 0, 255, 0.3);
+  border: 1px solid #2d2d2d;
+}
+
+.neon .display {
+  background: #000;
+  border-bottom: 1px solid #333;
+  text-shadow: 0 0 5px #0ff;
+}
+
+.neon .prev-result {
+  color: #0ff;
+}
+
+.neon .current-input {
+  color: #fff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.neon button {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.neon .number {
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+}
+
+.neon .operation,
+.neon .scientific,
+.neon .memory {
+  color: #f0f;
+  text-shadow: 0 0 10px #f0f;
+}
+
+.neon .equals {
+  background: #003;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  border: 1px solid #0ff;
+}
+
+.neon .clear {
+  color: #f55;
+  text-shadow: 0 0 10px #f55;
+}
+
+.neon .backspace {
+  color: #fa5;
+  text-shadow: 0 0 10px #fa5;
+}
+
+.neon .menu-button span {
+  background-color: #0ff;
+  box-shadow: 0 0 5px #0ff;
+}
+
+.neon .mode-toggle,
+.neon .history-button {
+  background: #1a1a1a;
+  color: #f0f;
+  border: 1px solid #f0f;
+  text-shadow: 0 0 10px #f0f;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+.neon .menu-popup {
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #333;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.neon .theme-btn {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.neon .theme-btn.active {
+  border: 1px solid #0ff;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+}
+
+.neon .close-menu {
+  background: #1a1a1a;
+  color: #f0f;
+  border: 1px solid #f0f;
+  text-shadow: 0 0 10px #f0f;
+}
+
+.neon .history-panel {
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #333;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.neon .history-header {
+  border-bottom: 1px solid #333;
+}
+
+.neon .history-header button {
+  background: #1a1a1a;
+  color: #f55;
+  border: 1px solid #f55;
+  text-shadow: 0 0 10px #f55;
+}
+
+.neon .history-item {
+  background: #1a1a1a;
+  border: 1px solid #333;
+}
+
+.neon .history-result {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+/* Theme: Dark */
+.dark {
+  background: #121212;
+  color: #eee;
+}
+
+.dark .calculator {
+  background: #1e1e1e;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dark .display {
+  background: #121212;
+}
+
+.dark button {
+  background: #2d2d2d;
+  color: #eee;
+}
+
+.dark button:hover {
+  background: #3a3a3a;
+}
+
+.dark .number {
+  background: #252525;
+}
+
+.dark .operation,
+.dark .scientific,
+.dark .memory {
+  background: #323232;
+}
+
+.dark .equals {
+  background: #0066cc;
+}
+
+.dark .equals:hover {
+  background: #0077e6;
+}
+
+.dark .clear {
+  background: #aa3939;
+}
+
+.dark .clear:hover {
+  background: #cc4444;
+}
+
+.dark .backspace {
+  background: #aa6e39;
+}
+
+.dark .backspace:hover {
+  background: #cc8144;
+}
+
+.dark .menu-button span {
+  background-color: #eee;
+}
+
+.dark .mode-toggle,
+.dark .history-button {
+  background: #323232;
+  color: #eee;
+}
+
+.dark .menu-popup {
+  background: #1e1e1e;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.dark .theme-btn {
+  background: #2d2d2d;
+  color: #eee;
+}
+
+.dark .theme-btn.active {
+  border: 2px solid #0066cc;
+}
+
+.dark .close-menu {
+  background: #323232;
+  color: #eee;
+}
+
+.dark .history-panel {
+  background: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark .history-header {
+  border-bottom: 1px solid #333;
+}
+
+.dark .history-header button {
+  background: #aa3939;
+  color: #eee;
+}
+
+.dark .history-item {
+  background: #2d2d2d;
+}
+
+/* Theme: Light */
+.light {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.light .calculator {
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.light .display {
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.light button {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #e0e0e0;
+}
+
+.light button:hover {
+  background: #e6e6e6;
+}
+
+.light .number {
+  background: #f5f5f5;
+}
+
+.light .operation,
+.light .scientific,
+.light .memory {
+  background: #e8e8e8;
+}
+
+.light .equals {
+  background: #4285f4;
+  color: white;
+}
+
+.light .equals:hover {
+  background: #5a95f5;
+}
+
+.light .clear {
+  background: #f44336;
+  color: white;
+}
+
+.light .clear:hover {
+  background: #f55a4e;
+}
+
+.light .backspace {
+  background: #ff9800;
+  color: white;
+}
+
+.light .backspace:hover {
+  background: #ffa726;
+}
+
+.light .menu-button span {
+  background-color: #333;
+}
+
+.light .mode-toggle,
+.light .history-button {
+  background: #e8e8e8;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.light .menu-popup {
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.light .theme-btn {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #e0e0e0;
+}
+
+.light .theme-btn.active {
+  border: 2px solid #4285f4;
+}
+
+.light .close-menu {
+  background: #e8e8e8;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.light .history-panel {
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.light .history-header {
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.light .history-header button {
+  background: #f44336;
+  color: white;
+}
+
+.light .history-item {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+}
+
+/* 3D Button press effect */
+button:active {
+  transform: translateY(2px);
+}
