@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px;
+  min-height: 100vh;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+main {
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  background: rgba(10, 12, 30, 0.7);
+  width: 90vw;
+  max-width: 500px;
+  margin: 50px auto;
+  padding-bottom: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(110, 142, 251, 0.8), 
+              0 0 60px rgba(167, 119, 227, 0.5);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #6e8efb, #a777e3, #6e8efb);
+  background-size: 200% 100%;
+  animation: gradient 3s ease infinite;
+  z-index: 1;
+}
+
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+h1 {
+  background: linear-gradient(135deg, #1b1096, #6e8efb);
+  color: #fff;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  padding: 20px 10px;
+  text-shadow: 0 0 10px rgba(167, 119, 227, 0.8);
+  position: relative;
+}
+
+.container {
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  background: rgba(20, 20, 50, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5), 
+              0 0 20px rgba(110, 142, 251, 0.3) inset;
+  padding: 30px;
+  margin-top: 20px;
+  border: 1px solid rgba(110, 142, 251, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6), 
+              0 0 30px rgba(110, 142, 251, 0.5) inset;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: rotate(45deg);
+  pointer-events: none;
+  animation: shine 6s infinite;
+}
+
+@keyframes shine {
+  0% {transform: translateX(-100%) rotate(45deg);}
+  20%, 100% {transform: translateX(100%) rotate(45deg);}
+}
+
+header h1 {
+  font-size: 2.8rem;
+  background: none;
+  background: linear-gradient(90deg, #6e8efb, #a777e3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 5px;
+  text-shadow: none;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #a0a0ff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px rgba(110, 142, 251, 0.5);
+}
+
+.input-section {
+  width: 80%;
+}
+
+.input-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: rgba(40, 40, 80, 0.8);
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px rgba(110, 142, 251, 0.5) inset;
+}
+
+.input-slider:hover {
+  background: rgba(60, 60, 100, 0.8);
+}
+
+.input-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(110, 142, 251, 0.8);
+  transition: all 0.3s ease;
+}
+
+.input-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(110, 142, 251, 1);
+}
+
+.output {
+  font-size: 1.8rem;
+  padding: 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1b1096, #3827c0);
+  margin-top: 20px;
+  color: #fff;
+  transition: all 0.5s ease;
+  text-shadow: 0 0 10px rgba(167, 119, 227, 0.8);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3), 
+              0 0 15px rgba(110, 142, 251, 0.5) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.output:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4), 
+              0 0 20px rgba(110, 142, 251, 0.7) inset;
+}
+
+.output-section {
+  margin-top: 30px;
+  position: relative;
+}

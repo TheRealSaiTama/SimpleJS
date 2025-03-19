@@ -60,11 +60,30 @@ function launchRocket() {
     alert('Rocket has reached orbit! 🌌');
   }, 3000);
 }
-```
+63|```
 
----
-
-## 🗺️ Roadmap: Upcoming Projects
+64|### 🌌 [BMI Calculator](./bmicalculator)
+65|
+66|The Cosmic BMI Calculator is an interactive React application that provides a stellar experience for calculating and visualizing Body Mass Index. It combines practical health tracking with a cosmic theme!
+67|
+68|```javascript
+69|// Sample code from BMI Calculator
+70|function calculateBMI(weight, height) {
+71|  const bmi = weight / (height * height);
+72|  
+73|  let category;
+74|  if (bmi < 18.5) category = 'Underweight';
+75|  else if (bmi < 25) category = 'Normal';
+76|  else if (bmi < 30) category = 'Overweight';
+77|  else category = 'Obese';
+78|  
+79|  return { bmi, category };
+80|}
+81|```
+82|
+83|---
+84|
+85|## 🗺️ Roadmap: Upcoming Projects
 
 We're constantly working on adding new projects to help you on your JavaScript journey:
 
